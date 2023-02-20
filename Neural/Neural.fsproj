@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Neural.fsproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Perceptron.fs" />
+    <Compile Include="NeuralNetwork.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Linalg\Linalg.fsproj" />
+  </ItemGroup>
+</Project>

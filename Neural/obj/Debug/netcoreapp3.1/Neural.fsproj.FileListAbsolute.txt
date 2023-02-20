@@ -1,0 +1,10 @@
+/Users/Nick/development/workspace/ML/Neural/bin/Debug/netcoreapp3.1/Neural.deps.json
+/Users/Nick/development/workspace/ML/Neural/bin/Debug/netcoreapp3.1/Neural.dll
+/Users/Nick/development/workspace/ML/Neural/bin/Debug/netcoreapp3.1/Neural.pdb
+/Users/Nick/development/workspace/ML/Neural/bin/Debug/netcoreapp3.1/Linalg.dll
+/Users/Nick/development/workspace/ML/Neural/bin/Debug/netcoreapp3.1/Linalg.pdb
+/Users/Nick/development/workspace/ML/Neural/obj/Debug/netcoreapp3.1/Neural.AssemblyInfoInputs.cache
+/Users/Nick/development/workspace/ML/Neural/obj/Debug/netcoreapp3.1/Neural.AssemblyInfo.fs
+/Users/Nick/development/workspace/ML/Neural/obj/Debug/netcoreapp3.1/Neural.fsproj.CopyComplete
+/Users/Nick/development/workspace/ML/Neural/obj/Debug/netcoreapp3.1/Neural.dll
+/Users/Nick/development/workspace/ML/Neural/obj/Debug/netcoreapp3.1/Neural.pdb
