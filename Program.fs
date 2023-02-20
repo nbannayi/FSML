@@ -39,7 +39,7 @@ let main argv =
          [[-60.;60.;-30.]]]
 
     printfn "XOR neural network"
-    printfn "------------------"
+    printfn "-------------------"
     printfn "Neural network [0;0] gives = %A" (xorNeuralNetwork |> NeuralNetwork.feedForward [0.;0.] |> NeuralNetwork.getResult)
     printfn "Neural network [1;0] gives = %A" (xorNeuralNetwork |> NeuralNetwork.feedForward [1.;0.] |> NeuralNetwork.getResult)
     printfn "Neural network [0;1] gives = %A" (xorNeuralNetwork |> NeuralNetwork.feedForward [0.;1.] |> NeuralNetwork.getResult)
