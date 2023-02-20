@@ -1,7 +1,0 @@
-/Users/Nick/development/workspace/ML/Linalg/bin/Debug/netcoreapp3.1/Linalg.deps.json
-/Users/Nick/development/workspace/ML/Linalg/bin/Debug/netcoreapp3.1/Linalg.dll
-/Users/Nick/development/workspace/ML/Linalg/bin/Debug/netcoreapp3.1/Linalg.pdb
-/Users/Nick/development/workspace/ML/Linalg/obj/Debug/netcoreapp3.1/Linalg.AssemblyInfoInputs.cache
-/Users/Nick/development/workspace/ML/Linalg/obj/Debug/netcoreapp3.1/Linalg.AssemblyInfo.fs
-/Users/Nick/development/workspace/ML/Linalg/obj/Debug/netcoreapp3.1/Linalg.dll
-/Users/Nick/development/workspace/ML/Linalg/obj/Debug/netcoreapp3.1/Linalg.pdb
