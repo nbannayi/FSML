@@ -39,7 +39,7 @@ module NeuralNetwork =
         |> List.head
 
     /// Given a neural network, an input vector, and a target vector, make a prediction and
-    /// compute the gradient of the of the squared error loss with respect to the neuron weights.
+    /// compute the gradient of the squared error loss with respect to the neuron weights.
     let sqErrorGrads (neuralNetwork: NeuralNetwork) (inputVector: Vector) (targetVector: Vector) =
 
         // Forward pass.
