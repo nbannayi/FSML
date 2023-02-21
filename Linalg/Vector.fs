@@ -52,3 +52,12 @@ module Vector =
             List.zip v w
             |> List.map (fun (v',w') -> v'*w')
             |> List.sum
+
+    /// Moves stepSize in the gradient direction from v.
+    let gradientStep (v: Vector) (gradient: Vector) (stepSize: double) =
+        match v, gradient with
+        | v, gradient when v.Length <> gradient.Length ->
+            failwith "Vector and gradient must be the same length."
+        | _ ->
+            let step = scalarmul stepSize gradient
+            add v step
