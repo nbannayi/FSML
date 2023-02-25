@@ -73,7 +73,7 @@ module NeuralNetwork =
 
     /// Train the neural network with passed trasing data (xs,ys) for a given number of epochs with a given learning rate.
     let train (xs: Vector list) (ys: Vector list) (noEpochs: int) (learningRate: double) (neuralNetwork: NeuralNetwork) =
-        printfn "Training neural network for %d epochs and learning rate %f." noEpochs learningRate
+        printfn "Training neural network for %d epochs with learning rate %f." noEpochs learningRate
         let sw = Stopwatch()
         sw.Start()
         let neuralNetwork' =

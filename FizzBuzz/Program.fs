@@ -47,13 +47,13 @@ let main argv =
             createRandomNeuralNetwork noHiddenLayers
             |> NeuralNetwork.train xs ys epochs learningRate
         let score = neuralNetwork |> solve
-        if score = 100 then
-            let fileName = "fizzbuzz_neural_network_"+DateTime.Now.ToString("yyyyMMddhhmmss")+".ser"
-            printfn "Perfect result! This has been serialised to %s" fileName
+        if score >= 97 then
+            let fileName = sprintf "fizzbuzz_neural_network_%d_%s.ser" score (DateTime.Now.ToString("yyyyMMddhhmmss"))
+            printfn "Result >= 97! This has been serialised to %s" fileName
             neuralNetwork |> NeuralNetwork.serialise fileName
-        else
+        if score < 100 then
             printfn "Accuracy was %d/100, retrying." score
-            train xs ys epochs learningRate noHiddenLayers        
+            train xs ys epochs learningRate noHiddenLayers     
 
     printfn "FizzBuzz solving neural network"
     printfn "-------------------------------"
@@ -64,7 +64,7 @@ let main argv =
     let noHiddenLayers = 25
 
     // Create hyper parameters.
-    let noEpochs = 500
+    let noEpochs = 1000
     let learningRate = 1.0
 
     // Train a neural network till we have the perfect weights.
