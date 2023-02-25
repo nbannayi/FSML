@@ -9,6 +9,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Neural", "Neural\Neural.fsp
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Linalg", "Linalg\Linalg.fsproj", "{0C454362-EF36-4F3E-8E79-0FECE98D5489}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FizzBuzz", "FizzBuzz\FizzBuzz.fsproj", "{CA8DBBA2-CAF1-4F32-BA79-546772BCF6B7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{0C454362-EF36-4F3E-8E79-0FECE98D5489}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C454362-EF36-4F3E-8E79-0FECE98D5489}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C454362-EF36-4F3E-8E79-0FECE98D5489}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA8DBBA2-CAF1-4F32-BA79-546772BCF6B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA8DBBA2-CAF1-4F32-BA79-546772BCF6B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA8DBBA2-CAF1-4F32-BA79-546772BCF6B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA8DBBA2-CAF1-4F32-BA79-546772BCF6B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

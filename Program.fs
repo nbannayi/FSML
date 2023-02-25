@@ -1,5 +1,4 @@
 ﻿open ML.Neural
-open ML.Linalg
 
 [<EntryPoint>]
 let main argv =

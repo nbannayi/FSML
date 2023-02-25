@@ -2,6 +2,8 @@
 
 open System
 open ML.Linalg
+open System.Diagnostics
+open System.IO
 
 /// Represents a neural network.
 /// This is a list (layers) of lists (neurons) of vectors (weights.)
@@ -71,10 +73,21 @@ module NeuralNetwork =
 
     /// Train the neural network with passed trasing data (xs,ys) for a given number of epochs with a given learning rate.
     let train (xs: Vector list) (ys: Vector list) (noEpochs: int) (learningRate: double) (neuralNetwork: NeuralNetwork) =
-        [for _ in [0..noEpochs-1] do for x, y in List.zip xs ys -> x,y]        
-        |> List.fold (fun nn (x,y) ->
-            let gradients = sqErrorGrads nn x y
-            [for layer, layerGrad in List.zip nn gradients do
-                [for neuron, grad in List.zip layer layerGrad -> Vector.gradientStep neuron grad -learningRate]]
-        ) neuralNetwork        
-            
+        printfn "Training neural network for %d epochs and learning rate %f." noEpochs learningRate
+        let sw = Stopwatch()
+        sw.Start()
+        let neuralNetwork' =
+            [for _ in [0..noEpochs-1] do for x, y in List.zip xs ys -> x,y]        
+            |> List.fold (fun nn (x,y) ->
+                let gradients = sqErrorGrads nn x y
+                [for layer, layerGrad in List.zip nn gradients do
+                    [for neuron, grad in List.zip layer layerGrad -> Vector.gradientStep neuron grad -learningRate]]
+            ) neuralNetwork        
+        sw.Stop()
+        printfn "Training complete in %dms (%dmin %ds.)"
+            sw.ElapsedMilliseconds (sw.ElapsedMilliseconds/60000L) (sw.ElapsedMilliseconds/1000L % 60L)
+        neuralNetwork'
+
+    /// Serialise neural network to a file.
+    let serialise (filePath: string) (neuralNetwork: NeuralNetwork) =        
+        File.WriteAllText(filePath, sprintf "%A" neuralNetwork)

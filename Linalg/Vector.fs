@@ -61,3 +61,8 @@ module Vector =
         | _ ->
             let step = scalarmul stepSize gradient
             add v step
+
+    /// Returns index of largest element.
+    let argmax (v: Vector) =
+        let max = v |> List.max
+        v |> List.findIndex (fun e -> e = max)
