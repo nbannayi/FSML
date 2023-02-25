@@ -5,8 +5,8 @@ let main argv =
 
     let andPerceptron = {Weights = [2.;2.]; Bias = -3.}
 
-    printfn "AND perceptron"
-    printfn "--------------"
+    printfn "AND perceptron demo"
+    printfn "-------------------"
     printfn "Perceptron [1;1] gives = %A" (andPerceptron |> Perceptron.getOutput [1.;1.])
     printfn "Perceptron [0;1] gives = %A" (andPerceptron |> Perceptron.getOutput [0.;1.])
     printfn "Perceptron [1;0] gives = %A" (andPerceptron |> Perceptron.getOutput [1.;0.])
@@ -15,8 +15,8 @@ let main argv =
 
     let orPerceptron = {Weights = [2.;2.]; Bias = -1.}
 
-    printfn "OR perceptron"
-    printfn "-------------"
+    printfn "OR perceptron demo"
+    printfn "------------------"
     printfn "Perceptron [1;1] gives = %A" (orPerceptron |> Perceptron.getOutput [1.;1.])
     printfn "Perceptron [0;1] gives = %A" (orPerceptron |> Perceptron.getOutput [0.;1.])
     printfn "Perceptron [1;0] gives = %A" (orPerceptron |> Perceptron.getOutput [1.;0.])
@@ -25,8 +25,8 @@ let main argv =
 
     let notPerceptron = {Weights = [-2.]; Bias = 1.}
 
-    printfn "NOT perceptron"
-    printfn "--------------"
+    printfn "NOT perceptron demo"
+    printfn "-------------------"
     printfn "Perceptron [0] gives = %A" (notPerceptron |> Perceptron.getOutput [0.])
     printfn "Perceptron [1] gives = %A" (notPerceptron |> Perceptron.getOutput [1.])
     printfn ""
@@ -38,8 +38,8 @@ let main argv =
          // Output layer.
          [[-60.;60.;-30.]]]
 
-    printfn "XOR neural network"
-    printfn "-------------------"
+    printfn "XOR neural network demo"
+    printfn "-----------------------"
     printfn "Neural network [0;0] gives = %A" (xorNeuralNetwork |> NeuralNetwork.feedForward [0.;0.] |> NeuralNetwork.getResult)
     printfn "Neural network [1;0] gives = %A" (xorNeuralNetwork |> NeuralNetwork.feedForward [1.;0.] |> NeuralNetwork.getResult)
     printfn "Neural network [0;1] gives = %A" (xorNeuralNetwork |> NeuralNetwork.feedForward [0.;1.] |> NeuralNetwork.getResult)

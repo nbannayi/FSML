@@ -31,20 +31,29 @@ let main argv =
             if predicted = actual then 1 else 0)
         |> List.sum
 
+    // Create initial neural network with random weights.
+    let createRandomNeuralNetwork noHiddenLayers : NeuralNetwork =                
+        let rnd = System.Random()        
+        [// Hidden layer - 10 inputs -> numHiddenLayers outputs.
+            [for _ in [1..noHiddenLayers] -> List.init (10+1) (fun _ -> rnd.NextDouble())]
+            // Output layer - numHiddenLayers inputs -> 4 outputs.
+            [for _ in [1..4] -> List.init (noHiddenLayers+1) (fun _ -> rnd.NextDouble())]
+        ]
+
     // Train neural network and use it to solve fizzbuzz. Once we have a perfect network
     // serialise the results and quit.
-    let rec train xs ys epochs learningRate neuralNetwork =        
-        let neuralNetwork' =
-            neuralNetwork
+    let rec train xs ys epochs learningRate noHiddenLayers =        
+        let neuralNetwork =
+            createRandomNeuralNetwork noHiddenLayers
             |> NeuralNetwork.train xs ys epochs learningRate
-        let score = neuralNetwork' |> solve
+        let score = neuralNetwork |> solve
         if score = 100 then
             let fileName = "fizzbuzz_neural_network_"+DateTime.Now.ToString("yyyyMMddhhmmss")+".ser"
             printfn "Perfect result! This has been serialised to %s" fileName
-            neuralNetwork' |> NeuralNetwork.serialise fileName
+            neuralNetwork |> NeuralNetwork.serialise fileName
         else
             printfn "Accuracy was %d/100, retrying." score
-            train xs ys epochs learningRate neuralNetwork        
+            train xs ys epochs learningRate noHiddenLayers        
 
     printfn "FizzBuzz solving neural network"
     printfn "-------------------------------"
@@ -52,25 +61,18 @@ let main argv =
     // Encode training data.
     let xs = [101..1023] |> List.map (fun x -> binaryEncode x)
     let ys = [101..1023] |> List.map (fun y -> fizzBuzzEncode y)
+    let noHiddenLayers = 25
 
-    // Create initial neural network with random weights.
-    let numHiddenLayers = 25
-    let rnd = System.Random()
-    let (neuralNetwork: NeuralNetwork) =
-        [// Hidden layer - 10 inputs -> numHiddenLayers outputs.
-         [for _ in [1..numHiddenLayers] -> List.init (10+1) (fun _ -> rnd.NextDouble())]
-         // Output layer - numHiddenLayers inputs -> 4 outputs.
-         [for _ in [1..4] -> List.init (numHiddenLayers+1) (fun _ -> rnd.NextDouble())]
-        ]
+    // Create hyper parameters.
+    let noEpochs = 500
+    let learningRate = 1.0
 
-    printfn "Created neural network with %d hidden layers." numHiddenLayers
-
-    // Train it till we have the perfect network.
+    // Train a neural network till we have the perfect weights.
     let sw = Stopwatch()
     sw.Start()
-    let neuralNetwork' = train xs ys 500 1.0 neuralNetwork
+    let neuralNetwork = train xs ys noEpochs learningRate noHiddenLayers
     sw.Stop()
     printfn "Fully trained the neural network in %dms (%dmin %ds):"
         sw.ElapsedMilliseconds (sw.ElapsedMilliseconds/60000L) (sw.ElapsedMilliseconds/1000L % 60L)
-    printfn "%A" neuralNetwork'
+    printfn "%A" neuralNetwork
     0
