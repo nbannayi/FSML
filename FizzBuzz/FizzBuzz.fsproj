@@ -1,15 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
-
   <ItemGroup>
+    <Compile Include="FizzBuzzNetwork.fs" />
     <Compile Include="Program.fs" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <None Include="saved\fizzbuzz_neural_network_100_20230225041901.txt" />
+    <None Include="saved\fizzbuzz_neural_network_97_20230225054336.txt" />
+    <None Include="saved\fizzbuzz_neural_network_99_20230225024505.txt" />
+    <None Include="saved\fizzbuzz_neural_network_98_20230225034702.txt" />
     <ProjectReference Include="..\Neural\Neural.fsproj" />
   </ItemGroup>
 </Project>
